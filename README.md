@@ -35,39 +35,46 @@ The goal is simple: help a team see the system, reason about it and act with con
 ## Ecosystem Map
 
 ```mermaid
-%%{init: {'theme':'base','themeVariables':{'primaryColor':'#fafaf5','primaryTextColor':'#1a1a1a','primaryBorderColor':'#3553ff','lineColor':'#3553ff','fontFamily':'JetBrains Mono','fontSize':'12px'}}}%%
+%%{init: {'theme':'base','themeVariables':{'background':'#0d1117','primaryColor':'#121820','primaryTextColor':'#f5f7fb','primaryBorderColor':'#923A5F','lineColor':'#923A5F','secondaryColor':'#171f2a','tertiaryColor':'#1f2937','fontFamily':'JetBrains Mono, monospace','fontSize':'13px'}}}%%
 flowchart TB
-  BR["BeatRooter Core"] --> C["Visual Canvas"]
-  BR --> T["Tool Nodes"]
-  BR --> N["Node Library"]
-  BR --> BN["BeatNote"]
-  BR --> G["Gnarl Assistant"]
-  BR --> R["Reports & Attack Paths"]
-  BR --> L["Language Layer"]
-  BR --> B["BeatBox / Sandbox"]
+  BR["BeatRooter<br/>Visual Cyber Operations"]:::core
 
-  C --> S["Stackers & Workspaces"]
-  C --> E["Dynamic Edges"]
-  C --> D["Detail Panel"]
+  BR --> C["Canvas<br/>map the operation"]:::canvas
+  BR --> T["Tool Nodes<br/>run with context"]:::tools
+  BR --> K["Knowledge Layer<br/>notes, nodes, evidence"]:::knowledge
+  BR --> A["Gnarl<br/>assist the workflow"]:::assistant
+  BR --> R["Reports<br/>explain the path"]:::reports
+  BR --> B["BeatBox<br/>sandbox in progress"]:::sandbox
 
-  T --> NI["Network / Infra Tools"]
-  T --> WD["Web / DNS Tools"]
-  T --> FR["File / Reverse / Forensics"]
-  T --> CT["Capture / Traffic"]
-  T --> WL["Wordlists & Generation"]
+  C --> C1["Stackers"]
+  C --> C2["Dynamic Edges"]
+  C --> C3["Detail Panel"]
 
-  N --> A["Assets"]
-  N --> O["Observations"]
-  N --> F["Findings"]
-  N --> EV["Evidence"]
-  N --> DF["Defense & Remediation"]
+  T --> T1["Network / Infra"]
+  T --> T2["Web / DNS"]
+  T --> T3["Reverse / Forensics"]
+  T --> T4["Wordlists"]
 
-  R --> AP["Attack Path Builder"]
-  R --> EX["Exports & Summaries"]
+  K --> K1["Assets"]
+  K --> K2["Findings"]
+  K --> K3["Evidence"]
+  K --> K4["BeatNote"]
 
-  B --> NB["NETWORK-BB"]
-  B --> OB["OS-BB"]
-  B --> WB["WEB-BB"]
+  R --> R1["Attack Paths"]
+  R --> R2["Exports"]
+
+  B --> B1["NETWORK-BB"]
+  B --> B2["OS-BB"]
+  B --> B3["WEB-BB"]
+
+  classDef core fill:#923A5F,stroke:#f4d35e,color:#ffffff,stroke-width:2px;
+  classDef canvas fill:#13251d,stroke:#22c55e,color:#ecfdf5,stroke-width:1.5px;
+  classDef tools fill:#13253a,stroke:#60a5fa,color:#eff6ff,stroke-width:1.5px;
+  classDef knowledge fill:#2a1f13,stroke:#f59e0b,color:#fff7ed,stroke-width:1.5px;
+  classDef assistant fill:#2b1935,stroke:#c084fc,color:#faf5ff,stroke-width:1.5px;
+  classDef reports fill:#281b1b,stroke:#fb7185,color:#fff1f2,stroke-width:1.5px;
+  classDef sandbox fill:#172033,stroke:#38bdf8,color:#f0f9ff,stroke-width:1.5px;
+  classDef default fill:#111827,stroke:#374151,color:#e5e7eb,stroke-width:1px;
 ```
 
 ## Highlights
