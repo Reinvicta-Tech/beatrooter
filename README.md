@@ -12,84 +12,120 @@
   <img src="https://img.shields.io/badge/ui-PyQt6-8b5cf6.svg" alt="PyQt6">
 </p>
 
-> **BeatRooter** é uma plataforma visual para mapear, executar, documentar e compreender operações de cibersegurança. Foi criada para Red Team, Blue Team, Purple Team, aulas de Wargaming, laboratórios controlados e equipas que precisam de transformar caos técnico num cenário legível.
-
 <p align="center">
   <strong>Beat roots. Beat them all. Be a BeatRooter.</strong>
 </p>
 
 ---
 
-## O que é
+# BeatRooter
 
-BeatRooter junta um **canvas operacional**, nós especializados, ferramentas externas, notas, evidências, relatórios, assistentes e um modo experimental de simulação. Em vez de espalhar resultados por terminais, ficheiros soltos e screenshots esquecidos, a aplicação organiza o engagement como um mapa vivo: alvos, serviços, vulnerabilidades, credenciais, observações, decisões, evidências e caminhos de ataque.
+> **BeatRooter** is a visual platform for mapping, running, documenting and understanding cybersecurity operations. It is built for Red Team, Blue Team, Purple Team, Wargaming classes, controlled labs and teams that need to turn technical chaos into a readable operational scenario.
 
-O objetivo é simples: ajudar uma equipa a ver o sistema, raciocinar sobre ele e agir com contexto.
+## What It Is
+
+BeatRooter brings together an **operational canvas**, specialized nodes, external tools, notes, evidence, reports, assistants and an experimental simulation line. Instead of scattering outputs across terminals, loose files and forgotten screenshots, the application organizes an engagement as a living map: targets, services, vulnerabilities, credentials, observations, decisions, evidence and attack paths.
+
+The goal is simple: help a team see the system, reason about it and act with context.
 
 <p align="center">
-  <img src="./assets/exemploAtaque.png" width="900" alt="Exemplo de canvas BeatRooter">
+  <img src="./assets/exemploAtaque.png" width="900" alt="BeatRooter canvas example">
 </p>
 
----
+## Ecosystem Map
 
-## Destaques
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#fafaf5','primaryTextColor':'#1a1a1a','primaryBorderColor':'#3553ff','lineColor':'#3553ff','fontFamily':'JetBrains Mono','fontSize':'12px'}}}%%
+flowchart TB
+  BR["BeatRooter Core"] --> C["Visual Canvas"]
+  BR --> T["Tool Nodes"]
+  BR --> N["Node Library"]
+  BR --> BN["BeatNote"]
+  BR --> G["Gnarl Assistant"]
+  BR --> R["Reports & Attack Paths"]
+  BR --> L["Language Layer"]
+  BR --> B["BeatBox / Sandbox"]
 
-- **Canvas visual de ataque e defesa** com nós, ligações dinâmicas, stackers, painel de detalhe e organização por cenários.
-- **Biblioteca rica de nós** para assets, hosts, IPs, domínios, web apps, portas, serviços, vulnerabilidades, credenciais, evidências, notas, timelines, incidentes, TTPs, findings e planos de remediação.
-- **Attack Path Builder** para estruturar cadeias de ataque, payloads, pivots, resultados e relatórios.
-- **Tool Nodes** para executar ferramentas diretamente a partir do grafo e devolver resultados para o canvas.
-- **BeatNote** para notas técnicas, categorias, contexto de trabalho e documentação dentro da aplicação.
-- **Gnarl** como assistente/personagem do ecossistema BeatRooter, com painel, sprites e comportamento contextual.
-- **CVSS v4 Calculator** integrado para avaliação rápida de severidade.
-- **Wordlists** com presets, importação e ligação a ferramentas que precisam de listas.
-- **Custom Nodes** para adaptar o grafo ao tipo de operação, laboratório ou metodologia da equipa.
-- **Onboarding e preferências** para primeira configuração, idioma, aparência, atalhos e fluxo de trabalho.
-- **UI bilingue** em Inglês e Português, com catálogo estruturado e camada de tradução para texto legado.
+  C --> S["Stackers & Workspaces"]
+  C --> E["Dynamic Edges"]
+  C --> D["Detail Panel"]
 
----
+  T --> NI["Network / Infra Tools"]
+  T --> WD["Web / DNS Tools"]
+  T --> FR["File / Reverse / Forensics"]
+  T --> CT["Capture / Traffic"]
+  T --> WL["Wordlists & Generation"]
 
-## Funcionalidades
+  N --> A["Assets"]
+  N --> O["Observations"]
+  N --> F["Findings"]
+  N --> EV["Evidence"]
+  N --> DF["Defense & Remediation"]
 
-### Canvas BeatRooter
+  R --> AP["Attack Path Builder"]
+  R --> EX["Exports & Summaries"]
 
-O canvas é o centro da aplicação. Nele podes construir o mapa completo de uma operação:
+  B --> NB["NETWORK-BB"]
+  B --> OB["OS-BB"]
+  B --> WB["WEB-BB"]
+```
 
-- adicionar, editar, ligar, duplicar e organizar nós;
-- representar infraestrutura, aplicações, endpoints, utilizadores, artefactos e findings;
-- criar relações semânticas entre assets, observações, evidências e ações;
-- usar stackers para agrupar máquinas, ambientes ou subconjuntos de investigação;
-- guardar e restaurar projetos `.brt`;
-- gerar snapshots e relatórios a partir da estrutura montada.
+## Highlights
 
-### Nós e relações
+- **Visual attack and defense canvas** with nodes, dynamic edges, stackers, detail panels and scenario organization.
+- **Rich node library** for assets, hosts, IPs, domains, web apps, ports, services, vulnerabilities, credentials, evidence, notes, timelines, incidents, TTPs, findings and remediation plans.
+- **Attack Path Builder** for structuring attack chains, payloads, pivots, results and reports.
+- **Tool Nodes** that run external tools from the graph and return results back into the canvas.
+- **BeatNote** for technical notes, categories, work context and documentation inside the application.
+- **Gnarl** as the BeatRooter assistant and visual character, with panel, sprites and contextual behavior.
+- **CVSS v4 Calculator** for quick severity scoring.
+- **Wordlists** with presets, imports and integration with tools that need lists.
+- **Custom Nodes** for adapting the graph to a specific operation, lab or methodology.
+- **Onboarding and preferences** for first setup, language, appearance, shortcuts and workflow.
+- **Bilingual UI** in English and Portuguese, with structured catalogs and a compatibility layer for legacy Qt text.
 
-BeatRooter não trata tudo como uma nota genérica. O sistema tem tipos de nós para domínios diferentes:
+## Features
 
-| Família | Exemplos |
+### BeatRooter Canvas
+
+The canvas is the center of the application. It lets you build the full map of an operation:
+
+- add, edit, connect, duplicate and organize nodes;
+- represent infrastructure, applications, endpoints, users, artifacts and findings;
+- create semantic relationships between assets, observations, evidence and actions;
+- use stackers to group machines, environments or investigation areas;
+- save and restore `.brt` projects;
+- generate snapshots and reports from the graph.
+
+### Nodes And Relationships
+
+BeatRooter does not treat everything as a generic note. It has node types for different security domains:
+
+| Family | Examples |
 |---|---|
 | Assets | IP, Host, Domain, Web Application, User, Credential, Infra Asset |
-| Observações | Port/Service, Endpoint, DNS, Dynamic Trace, Behavior Analysis |
-| Ataque | Attack, Attack Chain, Exploit, Payload, Lateral Movement, Privilege Escalation |
-| Defesa | Control Gap, Containment Action, Hardening Task, Remediation Plan |
-| Evidência | Screenshot, Forensic Artifact, Script, Binary Sample, Configuration File |
-| Investigação | Investigation Note, Hypothesis, Incident Timeline, Triage Decision, Ticket |
-| Especializados | Mobile Finding, Crypto Finding, Malware Sample, YARA Rules, Compliance Requirement |
+| Observations | Port/Service, Endpoint, DNS, Dynamic Trace, Behavior Analysis |
+| Attack | Attack, Attack Chain, Exploit, Payload, Lateral Movement, Privilege Escalation |
+| Defense | Control Gap, Containment Action, Hardening Task, Remediation Plan |
+| Evidence | Screenshot, Forensic Artifact, Script, Binary Sample, Configuration File |
+| Investigation | Investigation Note, Hypothesis, Incident Timeline, Triage Decision, Ticket |
+| Specialized | Mobile Finding, Crypto Finding, Malware Sample, YARA Rules, Compliance Requirement |
 
-### Attack paths e relatórios
+### Attack Paths And Reports
 
-O sistema de attack paths ajuda a transformar descobertas soltas numa narrativa operacional:
+Attack paths help transform loose findings into an operational story:
 
-- liga etapas de ataque com contexto;
-- acompanha evidências e resultados;
-- estrutura payloads e transições;
-- suporta relatórios de caminho de ataque;
-- torna a progressão mais fácil de explicar a uma equipa técnica ou a uma audiência defensiva.
+- link attack stages with context;
+- track evidence and results;
+- structure payloads and transitions;
+- support attack path reports;
+- make progression easier to explain to a technical team or a defensive audience.
 
-### Ferramentas integradas
+### Integrated Tools
 
-BeatRooter inclui uma camada de execução e gestão de ferramentas. Os tool nodes podem receber contexto do canvas, executar comandos e anexar resultados.
+BeatRooter includes an execution and management layer for external tools. Tool nodes can receive context from the canvas, run commands and attach results.
 
-| Área | Ferramentas |
+| Area | Tools |
 |---|---|
 | Network / Infra | Nmap, Masscan, Enum4linux, RPCClient, Netcat, Hydra |
 | Web / DNS | Gobuster, WhatWeb, SQLMap, DNS Utils, Subfinder, Amass, Whois |
@@ -98,124 +134,118 @@ BeatRooter inclui uma camada de execução e gestão de ferramentas. Os tool nod
 | Research / Search | Searchsploit |
 | Generation / Wordlists | CUPP |
 
-> As ferramentas devem ser usadas apenas em ambientes próprios, laboratórios, CTFs ou sistemas onde exista autorização explícita.
+Use these tools only in systems you own, labs, CTFs or environments where you have explicit authorization.
 
 ### BeatNote
 
-BeatNote é o bloco de notas operacional do BeatRooter:
+BeatNote is BeatRooter's operational notebook:
 
-- notas por categoria;
-- painel integrado no workspace;
-- diálogo dedicado para escrita e revisão;
-- serviço próprio para gerir conteúdo;
-- ligação natural a nós, findings e documentação do engagement.
+- notes by category;
+- integrated workspace panel;
+- dedicated writing and review dialog;
+- service layer for note management;
+- natural connection to nodes, findings and engagement documentation.
 
 ### Gnarl
 
-Gnarl é a presença assistiva e visual do BeatRooter. O módulo inclui:
+Gnarl is BeatRooter's assistive and visual presence. The module includes:
 
-- painel flutuante;
-- sprites e estados visuais;
-- interação contextual;
-- integração com cenários;
-- base para assistência mais inteligente dentro do workspace.
+- floating panel;
+- sprite and display states;
+- contextual interaction;
+- scenario integration;
+- foundation for smarter workspace assistance.
 
 ### CVSS v4
 
-A calculadora CVSS v4 permite avaliar severidade sem sair do fluxo de trabalho. É útil para triagem, priorização e documentação de findings técnicos.
+The CVSS v4 calculator lets you score severity without leaving the workflow. It is useful for triage, prioritization and technical finding documentation.
 
-### Idiomas
+### Languages
 
-BeatRooter mantém Inglês e Português em paralelo. A camada de idioma combina:
+BeatRooter keeps English and Portuguese in sync through:
 
-- catálogos JSON estruturados;
-- gestor de idioma;
-- compatibilidade para texto Qt legado;
-- seleção de idioma em preferências.
+- structured JSON catalogs;
+- a language manager;
+- compatibility for legacy Qt text;
+- language selection in preferences.
 
----
-
-## Em desenvolvimento
+## In Development
 
 ### BeatBox / Sandbox
 
-**BeatBox** é a linha experimental do BeatRooter para simulação e treino. A ideia é criar ambientes controlados onde o utilizador possa montar, observar e testar cenários sem tocar em produção.
+**BeatBox** is BeatRooter's experimental simulation and training line. The idea is to create controlled environments where users can assemble, observe and test scenarios without touching production.
 
-O trabalho atual está dividido em três caixas:
+Current work is split into three boxes:
 
-| BeatBox | Objetivo |
+| BeatBox | Goal |
 |---|---|
-| `NETWORK-BB` | simulação e composição de redes, ligações e tráfego |
-| `OS-BB` | representação de sistemas, estados, processos e superfícies locais |
-| `WEB-BB` | simulação de aplicações web, endpoints e caminhos de exploração |
+| `NETWORK-BB` | network simulation, composition, links and traffic |
+| `OS-BB` | systems, states, processes and local attack surfaces |
+| `WEB-BB` | web applications, endpoints and exploitation paths |
 
-Dentro da aplicação, o módulo `features/sandbox` já contém a base visual e funcional para:
+Inside the application, `features/sandbox` already provides the base for:
 
-- workspaces de rede, sistema operativo e web;
-- objetos de sandbox;
-- ligações entre objetos;
-- toolbox dedicada;
-- painel de detalhe;
-- ações de undo/redo;
-- motor de estado e tracing de rede.
+- network, operating system and web workspaces;
+- sandbox objects;
+- object connections;
+- dedicated toolbox;
+- detail panel;
+- undo/redo actions;
+- state and network tracing engines.
 
-BeatBox ainda é uma frente em evolução, mas aponta para um futuro forte: aprender, treinar, demonstrar e validar cenários dentro de um laboratório visual.
+BeatBox is still evolving, but it points to a strong direction: learn, train, demonstrate and validate scenarios inside a visual lab.
 
-### Roadmap técnico próximo
+### Technical Roadmap
 
-- melhorar integração entre resultados de ferramentas e nós especializados;
-- consolidar relatórios por cenário;
-- expandir custom nodes e templates;
-- amadurecer BeatBox/Sandbox;
-- fortalecer testes automatizados de UI e core;
-- melhorar instalação e deteção de ferramentas em Linux, Windows e WSL.
+- improve tool result integration with specialized nodes;
+- consolidate scenario reports;
+- expand custom nodes and templates;
+- mature BeatBox/Sandbox;
+- strengthen automated UI and core tests;
+- improve tool installation and detection on Linux, Windows and WSL.
 
----
-
-## Estrutura do projeto
+## Project Structure
 
 ```text
 BeatRooter/
-  main.py                         # entrada PyQt6
+  main.py                         # PyQt6 entry point
   features/
-    beatroot_canvas/              # workspace visual principal
-      core/                       # grafo, storage, templates, attack paths, validação
-      models/                     # modelos de graph/node/edge
-      ui/                         # janela, canvas, toolbox, painéis, dialogs, pintura
-    beatnote/                     # notas e documentação operacional
+    beatroot_canvas/              # main visual workspace
+      core/                       # graph, storage, templates, attack paths, validation
+      models/                     # graph/node/edge models
+      ui/                         # window, canvas, toolbox, panels, dialogs, painting
+    beatnote/                     # operational notes and documentation
       core/
       ui/
-    tools/                        # gestão, execução e parsing de ferramentas externas
+    tools/                        # external tool management, execution and parsing
       core/
       contexts/
       docker/
       integrations/
       parsers/
       agents/
-    gnarl/                        # assistente visual e integrações
-    cvss/                         # calculadora CVSS v4
-    wordlists/                    # presets e importação de wordlists
-    onboarding/                   # wizard inicial e preferências
-    language/                     # catálogos EN/PT e tradução legada
-    sandbox/                      # BeatBox/Sandbox experimental
-assets/                           # logos, imagens e assets visuais
-docs/                             # documentação técnica
-tests/projects/                   # testes por feature
-BeatBox/                          # protótipos NETWORK-BB, OS-BB e WEB-BB
+    gnarl/                        # visual assistant and integrations
+    cvss/                         # CVSS v4 calculator
+    wordlists/                    # wordlist presets and import
+    onboarding/                   # first-run wizard and preferences
+    language/                     # EN/PT catalogs and legacy translation
+    sandbox/                      # experimental BeatBox/Sandbox
+assets/                           # logos, images and visual assets
+docs/                             # technical documentation
+tests/projects/                   # feature-level tests
+BeatBox/                          # NETWORK-BB, OS-BB and WEB-BB prototypes
 ```
 
----
+## Installation
 
-## Instalação
-
-### Requisitos
+### Requirements
 
 - Python 3.8+
 - PyQt6
-- Linux, Windows ou WSL
-- Ferramentas externas opcionais conforme o tipo de operação
+- Linux, Windows or WSL
+- Optional external security tools depending on the operation
 
-### Ambiente local
+### Local Environment
 
 ```bash
 python -m venv .venv
@@ -224,14 +254,14 @@ pip install -r requirements.txt
 python BeatRooter/main.py
 ```
 
-Em Windows, ativa o ambiente virtual com:
+On Windows:
 
 ```powershell
 .\.venv\Scripts\activate
 python BeatRooter\main.py
 ```
 
-### Testes
+### Tests
 
 ```bash
 QT_QPA_PLATFORM=offscreen python -m unittest discover -s tests/projects -p "test_*.py"
@@ -239,55 +269,49 @@ QT_QPA_PLATFORM=offscreen python -m unittest tests.projects.beatnote.test_beatno
 QT_QPA_PLATFORM=offscreen python -m unittest tests.projects.language.test_language_manager
 ```
 
----
+## Workflow
 
-## Fluxo de trabalho
+1. Create or open a `.brt` project.
+2. Add assets, services, observations and evidence to the canvas.
+3. Link nodes to represent real relationships: source, target, service, vulnerability, credential, exploitation and containment.
+4. Run tools when you need new data.
+5. Use BeatNote to record decisions, hypotheses and technical notes.
+6. Build attack paths to explain progression, impact and recommendations.
+7. Export or present the scenario as living documentation.
 
-1. Cria ou abre um projeto `.brt`.
-2. Adiciona assets, serviços, observações e evidências ao canvas.
-3. Liga nós para representar relações reais: origem, alvo, serviço, vulnerabilidade, credencial, exploração, contenção.
-4. Executa ferramentas quando precisares de dados novos.
-5. Usa BeatNote para registar decisões, hipóteses e notas técnicas.
-6. Constrói attack paths para explicar progressão, impacto e recomendações.
-7. Exporta ou apresenta o cenário como documentação viva.
-
----
-
-## Casos de uso
+## Use Cases
 
 ### Red Team
 
-- reconhecimento de redes e aplicações;
-- mapeamento de superfície de ataque;
-- organização de vulnerabilidades e credenciais;
-- documentação de exploração e pós-exploração;
-- geração de narrativas técnicas para relatório.
+- network and application reconnaissance;
+- attack surface mapping;
+- vulnerability and credential organization;
+- exploitation and post-exploitation documentation;
+- technical reporting narratives.
 
 ### Blue Team
 
-- inventário visual de infraestrutura;
-- análise de exposição;
-- triagem de findings;
-- planeamento de hardening;
-- simulação de resposta a incidentes.
+- visual infrastructure inventory;
+- exposure analysis;
+- finding triage;
+- hardening planning;
+- incident response simulation.
 
 ### Purple Team
 
-- alinhar ataque, deteção e remediação no mesmo mapa;
-- validar hipóteses de deteção;
-- identificar falhas de cobertura;
-- repetir cenários com evidência comparável.
+- align attack, detection and remediation in the same map;
+- validate detection hypotheses;
+- identify coverage gaps;
+- repeat scenarios with comparable evidence.
 
-### Educação, CTF e Wargaming
+### Education, CTF And Wargaming
 
-- treinar pensamento adversarial;
-- criar laboratórios visuais;
-- explicar cadeias técnicas a estudantes;
-- transformar exercícios em mapas reutilizáveis.
+- train adversarial thinking;
+- create visual labs;
+- explain technical chains to students;
+- turn exercises into reusable maps.
 
----
-
-## Pequeno manifesto
+## Small Manifesto
 
 <table>
 <tr>
@@ -325,47 +349,41 @@ Target
 </tr>
 </table>
 
----
+## Responsible Use
 
-## Segurança e uso responsável
+BeatRooter was created for learning, research, labs and authorized work. Many integrated tools can generate offensive traffic, perform aggressive enumeration or handle sensitive artifacts.
 
-BeatRooter foi criado para aprendizagem, investigação, laboratórios e trabalho autorizado. Muitas ferramentas integradas podem produzir tráfego ofensivo, executar enumeração agressiva ou manipular artefactos sensíveis.
+Use it only in:
 
-Usa apenas em:
+- systems you own;
+- lab environments;
+- CTFs and wargames;
+- audits with explicit authorization;
+- defensive activities inside your scope.
 
-- sistemas teus;
-- ambientes de laboratório;
-- CTFs e wargames;
-- auditorias com autorização explícita;
-- atividades defensivas dentro do teu âmbito.
+Do not use BeatRooter to attack, test or enumerate third-party systems without permission.
 
-Não uses BeatRooter para atacar, testar ou enumerar sistemas de terceiros sem permissão.
+## Contributing
 
----
+Contributions are welcome, especially around:
 
-## Contribuir
-
-Contribuições são bem-vindas, especialmente nas áreas de:
-
-- templates de nós;
-- parsers de resultados;
-- integração de ferramentas;
-- melhorias de UI/UX;
-- testes automatizados;
-- documentação;
+- node templates;
+- result parsers;
+- tool integrations;
+- UI/UX improvements;
+- automated tests;
+- documentation;
 - BeatBox/Sandbox.
 
-Guidelines rápidas:
+Quick guidelines:
 
-- mantém alterações focadas;
-- evita credenciais, paths pessoais e ficheiros `.brt` acidentais;
-- adiciona testes quando mexeres em comportamento partilhado;
-- quando mudares texto visível na UI, atualiza Inglês e Português;
-- usa mensagens de commit curtas e imperativas.
+- keep changes focused;
+- avoid credentials, personal paths and accidental `.brt` files;
+- add tests when changing shared behavior;
+- when changing visible UI text, update English and Portuguese;
+- use short imperative commit messages.
 
----
-
-## Equipa de desenvolvimento
+## Development Team
 
 <div align="center">
   <a href="https://github.com/Samucahub/BeatRooter/graphs/contributors">
@@ -373,27 +391,23 @@ Guidelines rápidas:
   </a>
 </div>
 
----
+## Acknowledgements
 
-## Agradecimentos
+- **ISTEC** and the Wargaming context that gave origin to the project.
+- **Open Source Community**, for the shared tools, projects and knowledge.
+- **MITRE ATT&CK**, for the shared language around tactics, techniques and procedures.
+- **OWASP**, for application security methodologies and references.
+- Everyone who tests, breaks, fixes and improves BeatRooter.
 
-- **ISTEC** e o contexto de Wargaming que deu origem ao projeto.
-- **Comunidade Open Source**, pelos projetos, ferramentas e conhecimento partilhado.
-- **MITRE ATT&CK**, pela linguagem comum sobre táticas, técnicas e procedimentos.
-- **OWASP**, pelas metodologias e referências de segurança aplicacional.
-- Todas as pessoas que testam, partem, corrigem e melhoram o BeatRooter.
+## License
 
----
-
-## Licença
-
-Este projeto está disponibilizado para fins educacionais. Redistribuição, uso comercial ou uso fora desse contexto deve respeitar a autorização dos autores e a legislação aplicável.
+This project is provided for educational use. Redistribution, commercial use or use outside that context must respect author authorization and applicable law.
 
 ---
 
 <div align="center">
 
-**Visualiza. Mapeia. Ataca. Defende.**
+**Visualize. Map. Attack. Defend.**
 
 Made with coffee by the BeatRooter team.
 
