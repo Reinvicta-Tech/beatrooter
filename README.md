@@ -6,9 +6,7 @@
   <img src="https://img.shields.io/badge/license-Educational%20Use-blue.svg" alt="License">
   <img src="https://img.shields.io/badge/platform-Linux%20%7C%20Windows%20%7C%20WSL-lightgrey.svg" alt="Platform">
   <img src="https://img.shields.io/badge/python-3.8%2B-blue.svg" alt="Python">
-  <a href="RELEASE_v0.6.0.md">
-    <img src="https://img.shields.io/badge/version-v0.6.0-22c55e.svg" alt="Version 0.6.0">
-  </a>
+  <img src="https://img.shields.io/badge/version-v0.6.0-22c55e.svg" alt="Version 0.6.0">
   <img src="https://img.shields.io/badge/ui-PyQt6-8b5cf6.svg" alt="PyQt6">
 </p>
 
