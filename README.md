@@ -220,7 +220,7 @@ On Windows:
 
 ## License
 
-This project is provided for educational use. Redistribution, commercial use or use outside that context must respect author authorization and applicable law.
+PolyForm Shield 1.0.0
 
 ---
 
