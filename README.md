@@ -39,7 +39,7 @@ This repository is the demo build. Experimental modules and unfinished product l
 
 ## Quick Start
 
-In [realeses](https://github.com/Reinvicta-Tech/beatrooter/releases) ownload the [demo.zip](https://github.com/Reinvicta-Tech/beatrooter/releases/download/v0.6/Demo.zip) file
+In [realeses](https://github.com/Reinvicta-Tech/beatrooter/releases) download the [demo.zip](https://github.com/Reinvicta-Tech/beatrooter/releases/download/v0.6/Demo.zip) file
 
 For **Linux** and **Windows**
 
