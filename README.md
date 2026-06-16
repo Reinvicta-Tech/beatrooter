@@ -69,6 +69,11 @@ PolyForm Shield 1.0.0
 
 **Map the chaos. Drive the operation. Own the evidence.**
 
-Made by Reinvicta.
+Made with ☕︎ by:
+
+</div>
+<p align="center">
+  <img src="assets/reinvicta.svg" alt="logo"/>
+</p>
 
 </div>
